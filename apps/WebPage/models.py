@@ -34,34 +34,34 @@ class InformacionPersonal(models.Model):
 
 
 class Habilidad(models.Model):
-    nombre = models.CharField(max_length=30, validators=[MinLengthValidator(2), ...])  # Validación contra inyección SQL
-    porcentaje = models.IntegerField(validators=[...])  # Validación de número entero
+    nombre = models.CharField(max_length=30, validators=[MinLengthValidator(2),prevenir_inyeccion_sql])
+    porcentaje = models.IntegerField(validators=[MinLengthValidator(1), MaxLengthValidator(100), validar_porcentaje])
 
 class Proyecto(models.Model):
-    foto = models.ImageField(upload_to='fotos_proyectos/', validators=[...])
-    nombre = models.CharField(max_length=100)
+    foto = models.ImageField(upload_to='fotos_proyectos/')
+    nombre = models.CharField(max_length=30)
     categoria = models.ForeignKey('Categoria', on_delete=models.CASCADE)
-    cliente = models.CharField(max_length=20, validators=[MinLengthValidator(4)])
+    cliente = models.CharField(max_length=20, validators=[validar_longitud(4,20)])
     fecha = models.DateField(auto_now_add=True)
     url_acceso = models.URLField()
-    reflexion_personal = models.TextField(validators=[MinLengthValidator(4), MaxLengthValidator(200), ...])
+    reflexion_personal = models.TextField(validators=[MinLengthValidator(4), MaxLengthValidator(200), prevenir_inyeccion_sql])
 
 class Testimonio(models.Model):
     foto = models.ImageField(upload_to='fotos_testimonios/', validators=[...])
-    nombre = models.CharField(max_length=20, validators=[MinLengthValidator(4)])
-    cargo = models.CharField(max_length=50)
+    nombre = models.CharField(max_length=20, validators=[MinLengthValidator(4), prevenir_inyeccion_sql])
+    cargo = models.CharField(max_length=50, validators=[MinLengthValidator(4), MaxLengthValidator(30), prevenir_inyeccion_sql])
     proyecto = models.ForeignKey('Proyecto', on_delete=models.CASCADE)
-    testimonio = models.TextField(validators=[MinLengthValidator(4), MaxLengthValidator(100), ...])
+    testimonio = models.TextField(validators=[MinLengthValidator(4), MaxLengthValidator(200), prevenir_inyeccion_sql])
 
 class Articulo(models.Model):
-    foto = models.ImageField(upload_to='fotos_articulos/', validators=[...])
+    foto = models.ImageField(upload_to='fotos_articulos/')
     titulo = models.CharField(max_length=20, validators=[MinLengthValidator(4)])
     descripcion = models.TextField(validators=[MinLengthValidator(4), MaxLengthValidator(100)])
     autor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     fecha_publicacion = models.DateField(auto_now_add=True)
 
 class Mensaje(models.Model):
-    nombre = models.CharField(max_length=20, validators=[MinLengthValidator(4), ...])
+    nombre = models.CharField(max_length=20, validators=[MinLengthValidator(4)])
     correo = models.EmailField(validators=[EmailValidator()])
-    asunto = models.CharField(max_length=20, validators=[MinLengthValidator(4), ...])
-    mensaje = models.TextField(validators=[MinLengthValidator(4), MaxLengthValidator(100), ...])
+    asunto = models.CharField(max_length=20, validators=[MinLengthValidator(4)])
+    mensaje = models.TextField(validators=[MinLengthValidator(4), MaxLengthValidator(100)])
