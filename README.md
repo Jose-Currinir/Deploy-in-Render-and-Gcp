@@ -24,5 +24,27 @@ Prerrequisitos para poder crear un proyecto de Django.
   c.	Para desactivarlo debemos tipear deactivate
   
 6.	Una vez instalamos todos los modulos debemos traspasar esa información a nuestro archivo requirements.txt  
-  a.	Traspazar info (pip freeze > requirements.txt)  
-  b.	Instalar módulos (pip install -r .\requirements.txt)  
+  a. Modulos necesarios para poder trabajar
+    django-jazzmin          (Tema personalizado)
+    google-cloud-storage    (Bibliotecas para trabajar con google cloud storage)
+    google-cloud            (Biblioteca para autenticar con google)
+    gunicorn                (Servidor http necesario para render)
+    django-storages         (Colección de almacenamiento para django)
+    django                  (Django para desarrollo web)
+    dj-database-url         (Biblioteca para trabajar bases de datos en django)
+    python-dotenv           (Permite el uso de variables de entorno)
+    django-environ          (Permite el uso de variables de entorno)
+
+  b.	Traspazar info (pip freeze > requirements.txt)  
+  c.	Instalar módulos (pip install -r .\requirements.txt)  
+
+1. Comenzamos con el desarrollo y modelado de la base de datos (models.py).
+
+2. Creamos y aplicamos las migraciones de la base de datos
+
+3. Ahora preparamos la administración de la base de datos, la cual se ve en el archivo (admin.py) 
+
+4.  Después que tenemos el acceso a los datos debemos trabajar en el archivo (views.py). En las vistas contiene la lógica de negocio y determina como se presentan los datos al usuario.
+
+5.  Una vez tengamos listas las views, procedemos a trabajar en el archivo (urls.py), este archivo es el que estructura las solicitudes a las vistas correspondientes
+

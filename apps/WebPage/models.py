@@ -3,6 +3,13 @@ from django.core.validators import RegexValidator, MinLengthValidator, MaxLength
 from django.forms import ValidationError
 import re
 
+"""
+1. Aquí creamos las tablas que contendrá nuestra base de datos
+2. Una vez tengamos los modelos creados debemos generar las migraciones y subirlas, eso se realiza con los siguientes comandos
+    2.1 python manage.py makemigrations  
+    2.2 python manage.py migrate
+3. Una vez tengamos subidas las migraciones, nos debemos dirigir al archivo admin.py
+"""
 #
 def validar_longitud(min_len, max_len):
     def validator(value):
@@ -53,12 +60,14 @@ class Testimonio(models.Model):
     proyecto = models.ForeignKey('Proyecto', on_delete=models.CASCADE)
     testimonio = models.TextField(validators=[MinLengthValidator(4), MaxLengthValidator(200), prevenir_inyeccion_sql])
 
+"""
 class Articulo(models.Model):
     foto = models.ImageField(upload_to='fotos_articulos/')
     titulo = models.CharField(max_length=20, validators=[MinLengthValidator(4)])
     descripcion = models.TextField(validators=[MinLengthValidator(4), MaxLengthValidator(100)])
     autor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     fecha_publicacion = models.DateField(auto_now_add=True)
+"""
 
 class Mensaje(models.Model):
     nombre = models.CharField(max_length=20, validators=[MinLengthValidator(4)])
