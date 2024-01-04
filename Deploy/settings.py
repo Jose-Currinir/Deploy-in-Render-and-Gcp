@@ -26,7 +26,6 @@ ENVIRONMENT = env       #Código deploy
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-#   django-insecure-pt&wrmk^@-1py*kdeahsj8wetvjhs^^qw5xqfi5x1y-7yu1hx5
 SECRET_KEY = os.environ.get('SECRET_KEY')   #Código deploy
 SITE_NAME = 'Primera CBPA'                  #Código deploy
 DEBUG = 'RENDER' not in os.environ          #Código deploy
@@ -48,6 +47,7 @@ if RENDER_EXTERNAL_HOSTNAME:                                            #Código
 DJANGO_APPS = [                     #Código deploy
     'django_dump_load_utf8',        #Código deploy
     'jazzmin',                      #Código deploy
+    'django.contrib.sitemaps'       #Código deploy
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
