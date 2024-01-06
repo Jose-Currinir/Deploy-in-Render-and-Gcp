@@ -47,7 +47,7 @@ if RENDER_EXTERNAL_HOSTNAME:                                            #Código
 DJANGO_APPS = [                     #Código deploy
     'django_dump_load_utf8',        #Código deploy
     'jazzmin',                      #Código deploy
-    'django.contrib.sitemaps'       #Código deploy
+    #'django.contrib.sitemaps'       #Código deploy
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
