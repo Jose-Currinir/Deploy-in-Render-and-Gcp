@@ -34,6 +34,8 @@ Prerrequisitos para poder crear un proyecto de Django.
     dj-database-url         (Biblioteca para trabajar bases de datos en django)
     python-dotenv           (Permite el uso de variables de entorno)
     django-environ          (Permite el uso de variables de entorno)
+    django-dump-load-utf8   (no se que hace)
+    z
 
   b.	Traspazar info (pip freeze > requirements.txt)  
   c.	Instalar módulos (pip install -r .\requirements.txt)  
