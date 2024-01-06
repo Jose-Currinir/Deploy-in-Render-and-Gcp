@@ -56,7 +56,7 @@ DJANGO_APPS = [                     #Código deploy
     'django.contrib.staticfiles',
 ]
 PROJECT_APPS = [                    #Código deploy
-    'apps.webpage',                 #Código deploy
+    'apps.WebPage',                 #Código deploy
     #'apps.inventory'               #Código deploy
 ]
 THIRD_PARTY_APPS = [                #Código deploy
